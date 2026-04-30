@@ -26,3 +26,14 @@ build/
 
 .DS_Store
 Thumbs.db
+
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+terraform.tfvars
+backend.hcl
+crash.log
+override.tf
+*_override.tf
