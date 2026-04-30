@@ -57,14 +57,14 @@ resource "aws_ecs_task_definition" "backend" {
 
     environment = [
       { name = "S3_BUCKET", value = var.s3_bucket_name },
-      { name = "S3_REGION", value = "us-east-1" }
+      { name = "S3_REGION", value = var.aws_region }
     ]
 
     logConfiguration = {
       logDriver = "awslogs"
       options = {
         "awslogs-group"         = aws_cloudwatch_log_group.backend.name
-        "awslogs-region"        = "us-east-1"
+        "awslogs-region"        = var.aws_region
         "awslogs-stream-prefix" = "ecs"
       }
     }
@@ -94,7 +94,7 @@ resource "aws_ecs_task_definition" "frontend" {
       logDriver = "awslogs"
       options = {
         "awslogs-group"         = aws_cloudwatch_log_group.frontend.name
-        "awslogs-region"        = "us-east-1"
+        "awslogs-region"        = var.aws_region
         "awslogs-stream-prefix" = "ecs"
       }
     }

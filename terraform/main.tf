@@ -39,6 +39,7 @@ module "alb" {
 module "ecs" {
   source       = "./modules/ecs"
   project_name = var.project_name
+  aws_region   = var.aws_region
 
   backend_repo_url  = module.ecr.backend_repo_url
   frontend_repo_url = module.ecr.frontend_repo_url

@@ -27,19 +27,6 @@ resource "aws_s3_bucket_cors_configuration" "recipe_images" {
   }
 }
 
-resource "aws_s3_bucket_lifecycle_configuration" "recipe_images" {
-  bucket = aws_s3_bucket.recipe_images.id
-
-  rule {
-    id     = "expire-objects"
-    status = "Enabled"
-
-    expiration {
-      days = 30
-    }
-  }
-}
-
 data "aws_iam_policy_document" "ecs_assume_role" {
   statement {
     actions = ["sts:AssumeRole"]
