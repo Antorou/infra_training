@@ -6,3 +6,19 @@ output "db_endpoint" {
   value     = module.rds.db_endpoint
   sensitive = true
 }
+
+output "ecs_execution_role_arn" {
+  value = module.iam.ecs_execution_role_arn
+}
+
+output "ecs_task_role_arn" {
+  value = module.iam.ecs_task_role_arn
+}
+
+output "s3_bucket_name" {
+  value = module.iam.s3_bucket_name
+}
+
+output "alb_dns_name" {
+  value = module.alb.alb_dns_name
+}
